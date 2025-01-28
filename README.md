@@ -65,8 +65,9 @@ Or we can customize the host that serves the project:
   <app-games username="{{ username }}"></app-games>
 
   Rendered component:
-  export class GamesComponent {
+  export class GamesComponent:
   @Input() username: string = '';
+
   Rendered component resource imports:
   import { Component, Input } from '@angular/core';
 
