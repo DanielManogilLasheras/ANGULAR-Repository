@@ -26,9 +26,9 @@
 
   ng serve --open
 
-Or we can customize the host that serves the project:
+- Or we can customize the host that serves the project:
 
-    ng serve --host 0.0.0.0 --port 4201
+  ng serve --host 0.0.0.0 --port 4201
 
 ## Inside the project:
 
