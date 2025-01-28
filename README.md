@@ -2,8 +2,8 @@
 
 ## Steps to install Angular
 
-- Install node.js
-- Install typescript
+* Install node.js
+* Install typescript
 
   npm install -g typescript
 
