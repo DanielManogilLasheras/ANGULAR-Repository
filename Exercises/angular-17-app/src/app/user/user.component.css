@@ -1,0 +1,16 @@
+
+section{
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 32px;
+  font-size: 24px;
+}
+img{
+  width: 64px;
+  height: 64px;
+  border-radius: 64%;
+  -webkit-border-radius: 64%;
+  -moz-border-radius: 64%;
+  -ms-border-radius: 64%;
+  -o-border-radius: 64%;
+}
