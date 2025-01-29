@@ -104,3 +104,52 @@ As you can see, we have used a directive to declare the variable that has been i
 - When the data on stand by is loaded, all the logic such as JS programming is loaded too.
 
 - Defer allows the use of the @loading directive to substitute the element for something else we would like to show to the user while the information is loading.
+
+## Ways to use bootstrap in angular project.
+
+### Using Angular CLI tools:
+
+- We strongly recommend using Angular CLI for setting up a new project. If you have an Angular CLI project, you could simply use our schematics to add ng-bootstrap library to it.
+  Just run the following:
+
+      ng add @ng-bootstrap/ng-bootstrap
+
+- It will install ng-bootstrap for the default application specified in your angular.json. If you have multiple projects and you want to target a specific application, you could specify the --project option
+
+      ng add @ng-bootstrap/ng-bootstrap --project myProject
+
+### Alternative imports
+
+- Source: https://ng-bootstrap.github.io/#/getting-started
+- Instead of importing the whole library with NgbModule, you could only import modules with components you need, ex. pagination and alert. The resulting bundle will be smaller in this case.
+
+import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+
+    @NgModule({
+      imports: [NgbPaginationModule, NgbAlertModule],
+    })
+    export class YourAppModule {
+    }
+
+- Or, since all our components and directives are standalone, you can directly import them in your modules or in your standalone components.
+
+  import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
+
+  @Component({
+  selector: 'app-product',
+  standalone: true,
+  imports: [NgbAlert],
+  templateUrl: './product.component.html'
+  })
+  export class ProductComponent {
+  }
+
+## Import sweetalert2 to angular project
+
+- First we must install sweetalert2 inside our project folder:
+
+  npm install --save sweetalert2
+
+- We import sweetalert library into the component or module we are working on:
+
+import Swal from 'sweetalert2'
