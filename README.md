@@ -2,17 +2,17 @@
 
 ## Steps to install Angular
 
-* Install node.js
-* Install typescript
+- Install node.js
+- Install typescript
 
   npm install -g typescript
 
-- Test the versions
+* Test the versions
 
   node --version
   tsc --version
 
-- Install the Angular line of commands
+* Install the Angular line of commands
 
   npm install -g @angular/cli
 
@@ -24,7 +24,7 @@
 
 - Run the project:
 
-  ng serve --open
+  ng serve --open o npm start
 
 - Or we can customize the host that serves the project:
 
@@ -34,12 +34,28 @@
 
 - The main entry point of the application is main.ts, it is the first file loaded, and it's used to import resources, components, and they load them into the application.
 
-- In index.html is where we render the root of our components, we can make changes to the head of the document and add any additional resources.
+- In index.html is where we render the root of our components, we can make changes to the head of the document and add any additional resources.y
 
 - In app, we have the root of our componentsS
   We use @Component decorator to declare our components in order to use them. This decorator gives certain properties to the component class we want to export.
 
 - app.config.ts is the configuration of our entry point. It declares the providers, and builds the routing system.
+
+## Server side rendering:
+
+- If it's activated, all the loading is performed by the server.
+
+## Server Routing:
+
+- If activated, it allow us to manage all the navigation between components
+
+## About modules:
+
+- A module is a container that indicates which components can interact between each other
+- Declarations: It is the list of the components that will be able to interact between each other, and if they can see the libraries or components imported
+- Imports: Imports the components of the module
+- Providers: It's the list of services that provide data to the module
+- Bootstrap: the component that orchestrates the rest.
 
 ## About components:
 
@@ -52,6 +68,10 @@
 - Each time you generate a component, it generates a test, but these and more features can be manually disabled.
 - When creating a new component, you can add the --help to view a series of suffixes you can add to the component to customize it with the needed properties.
 - Dry run: It's the execution of the generation of a component as a test, with the purpose of making sure that there are no typos in the syntax of the command, and to allow you to understand better the result of such instructions.
+
+## Project prefixes
+
+- --prefix: it is used to work with components and give them a selector.
 
 ## About directives:
 
@@ -104,6 +124,22 @@ As you can see, we have used a directive to declare the variable that has been i
 - When the data on stand by is loaded, all the logic such as JS programming is loaded too.
 
 - Defer allows the use of the @loading directive to substitute the element for something else we would like to show to the user while the information is loading.
+
+## Angular dev tools
+
+- This chrome extension allow us to see the structure of our angular project in chrome, as it recognizes the way components are rendered.
+
+## Bindings
+
+- We can call a variable declared in our logic from the view, and we can bind the attribute of the element to the variable, avoiding the use of {{}} and maintaining better practices: exameple: <img [src]="url" />
+
+- We can bind attribute values in our forms to variables in the logic automatically by using a-ngModel
+
+## Install sweetalert
+
+- Include it in the dependencies
+- npm install it
+- include it in the component by : import Swal from 'sweetalert2'
 
 ## Ways to use bootstrap in angular project.
 

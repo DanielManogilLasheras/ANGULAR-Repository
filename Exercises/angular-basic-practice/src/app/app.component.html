@@ -1,0 +1,17 @@
+<div class="container justify-content-center">
+  <h2>{{ title }}</h2>
+  <h4>{{ description }}</h4>
+
+  <select class="form-select" [(ngModel)]="seleccion">
+    <option value="1">Conocimientos</option>
+    <option value="2">Asignaturas</option>
+    <option value="3">Tecnologías</option>
+  </select>
+
+  <div [ngSwitch]="seleccion">
+    <app-listado *ngSwitchCase="'1'"></app-listado>
+    <app-asignaturas *ngSwitchCase="'2'"></app-asignaturas>
+    <app-tecnologias *ngSwitchCase="'3'"></app-tecnologias>
+    <p *ngSwitchDefault>Por favor selecciona una opción</p>
+  </div>
+</div>

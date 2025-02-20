@@ -1,0 +1,33 @@
+<h1 class="justify-content-start mt-3">Conocimientos</h1>
+<img [src]="url" />
+<div class="row">
+  <div class="col">
+    <h2>Formulario</h2>
+    <input
+      [(ngModel)]="nombreConocimiento"
+      class="form-control mb-3"
+      type="text"
+      placeholder="Introduce conocimiento"
+    />
+    <select class="form-select mb-3" [(ngModel)]="nivelConocimiento">
+      <option value="1">Bajo</option>
+      <option value="2">Medio</option>
+      <option value="3">Alto</option>
+    </select>
+    <button class="btn btn-primary" (click)="guardarElemento()">Guardar</button>
+  </div>
+  <div class="col">
+    <h2>Listado de conocimientos:</h2>
+    <ul class="list-group">
+      <button class="btn btn-primary" (click)="mostrarConocimientos()">
+        Mostrar conocimientos
+      </button>
+
+      <div class="row" row-cols-1 row-cols-md-3 g-4 *ngIf="mostrar">
+        <li *ngFor="let item of conocimientos" class="list-group-item">
+          {{ item.nombre }} - {{ item.nivel }}
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>
