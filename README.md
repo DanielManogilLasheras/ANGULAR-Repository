@@ -75,7 +75,12 @@
 
 ## About directives:
 
-- Directives are a fundamental part of Angular, and they allow us to perform logic operations on the HTML syntax, there are two types of directives: attribute and structural directives
+- Directives are a fundamental part of Angular, and they allow us to perform logic operations on the HTML syntax, there are two types of directives: attribute and structural directives.
+- **[(ngModel)]** : Allows us to call a variable from the logic of our application, defined in our .ts file.
+- **\*ngFor** : It allow us to iterate an array to render it into the view, note that the elements will need to hold a data type that can be read.
+- **\*ngIf** : It will execute something depending on a logic condition.
+- **[ngSwitch]** : It allow us to execute code depending on the value of a variable, the cases are defined like this: **\*ngSwitchCase=** **\*ngSwitchDefault**. The value of the case is stored inside the component linked to that case.
+  **routerLink or [routerLink]="['/asignaturas', seleccion]**
 
 ### Passing values between components:
 
@@ -125,6 +130,35 @@ As you can see, we have used a directive to declare the variable that has been i
 
 - Defer allows the use of the @loading directive to substitute the element for something else we would like to show to the user while the information is loading.
 
+## About routes
+
+When we want to render different sections in our application, we can do it without refresing the webpage by using routes.
+
+- Routes are stored in app-routing.module.ts , each route takes the component that renders the view as the routed element.
+- Routes go into const routes = Route, as an array of routes. A route is a json of different keys and values that set up the route. Example:
+  {path:"tecnologias",component:TecnologiasComponent,
+  children:[
+  {path: 'angular', component: AsignaturasComponent},
+  {path: 'react', component: ListadoComponent}
+  ]},
+- When our view integrates routes, we always render the component <router-outlet></router-outlet>
+- We can pass values inside our routes by setting up the variable inside the route: example: path:"listado/:id". In this exameple we are telling the route system that when we render listado, it should expect a variable.
+- If we want to manage the navigation through the client logic, we can do it with the function that indicates the router to navigate to another component: Example:
+  navegar(){
+  console.log("procedo a navegar")
+  this.router.navigate(['listado',this.seleccion])
+  }
+  In this example, we are not only navigating to 'listado', but we are passing a variable as a value.
+  We must remember to link the function to the html element that will prompt the function inside the logic of the client.
+  <a class="nav-link" (click)="navegar()">Listado</a>
+  Finally, we need to create a constructor to allow the router to perform operations:
+  constructor(private router : Router) {}
+
+- We can manage the navigation inside the html, we must provide the html element with the directive [routerlink], and pass the elements in an array. Example:
+  <a class="nav-link active" [routerLink]="['/asignaturas', seleccion]">Tecnologias</a>
+  If we don't want to pass any information to the routed view, we can just do it without an array.
+  <a class="nav-link" routerLink="tecnologias">Asignaturas</a>
+
 ## Angular dev tools
 
 - This chrome extension allow us to see the structure of our angular project in chrome, as it recognizes the way components are rendered.
@@ -133,7 +167,7 @@ As you can see, we have used a directive to declare the variable that has been i
 
 - We can call a variable declared in our logic from the view, and we can bind the attribute of the element to the variable, avoiding the use of {{}} and maintaining better practices: exameple: <img [src]="url" />
 
-- We can bind attribute values in our forms to variables in the logic automatically by using a-ngModel
+- **ngModel:** We can bind attribute values in our forms to variables in the logic automatically by using a-ngModel
 
 ## Install sweetalert
 
