@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';// Asegúrate de que la ruta sea correcta // Asegúrate de importar correctamente la interfaz
+import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from '../../services/recipe.service';
 import { RecetaAPI } from '../../model/receta';
 import { RouterModule } from '@angular/router';
@@ -10,21 +10,19 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./detalles.component.css']
 })
 export class DetallesComponent implements OnInit {
-  receta: RecetaAPI = {} as RecetaAPI; // Definimos la variable receta con la interfaz RecetaAPI
+  receta: RecetaAPI = {} as RecetaAPI;
 
   constructor(
-    private route: ActivatedRoute,  // Para obtener el id de la URL
-    private recipeService: RecipeService  // Para obtener la receta desde la API
+    private route: ActivatedRoute,
+    private recipeService: RecipeService
   ) {}
 
   ngOnInit(): void {
-    // Obtenemos el id de la receta desde la URL
-    const recetaId = this.route.snapshot.paramMap.get('id');  // Capturamos el parámetro 'id' de la URL
+    const recetaId = this.route.snapshot.paramMap.get('id');
 
-    // Comprobamos si existe un id y hacemos la llamada a la API
     if (recetaId) {
       this.recipeService.getRecipeById(+recetaId).subscribe((data: RecetaAPI) => {
-        this.receta = data;  // Asignamos la receta obtenida a la variable receta
+        this.receta = data;
       });
     }
   }

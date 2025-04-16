@@ -8,7 +8,7 @@ import { RecetaAPI } from '../model/receta';
   providedIn: 'root'
 })
 export class RecipeService {
-  private apiUrl = 'https://dummyjson.com/recipes';  // URL de la API
+  private apiUrl = 'https://dummyjson.com/recipes';
 
   constructor(private http: HttpClient) {}
 
