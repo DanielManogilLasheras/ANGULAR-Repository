@@ -1,0 +1,47 @@
+<h1>Conocimientos de {{ name }}</h1>
+<img
+  [src]="url"
+  class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+  alt=""
+/>
+<div class="row">
+  <div class="col">
+    <h2>Formulario</h2>
+    <input
+      [(ngModel)]="nombreConocimiento"
+      class="form control mb-3"
+      placeholder="Introduce conocimiento"
+      #inputNombre
+    />
+    <select class="form-select mb-3" [(ngModel)]="nivelConocimiento">
+      <option value="1">Bajo</option>
+      <option value="2">Medio</option>
+      <option value="3">Alto</option>
+    </select>
+    <button class="btn btn-primary" (click)="guardarElemento()">Enviar</button>
+  </div>
+  <div class="col">
+    <h2>Listado conocimientos</h2>
+    <button (click)="mostrarConocimiento()" class="btn btn-primary">
+      Mostrar conocimientos
+    </button>
+    <ng-container *ngIf="mostrar; elseTemplate">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let item of conocimientos">
+          <div class="card" style="width: 18rem">
+            <img
+              src="istockphoto-1398473177-612x612.jpg"
+              class="../../../../public/istockphoto-1398473177-612x612.jpg"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ item.nombre }}</h5>
+              <p class="card-text">Nivel: {{ item.nivel }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #elseTemplate></ng-template>
+  </div>
+</div>

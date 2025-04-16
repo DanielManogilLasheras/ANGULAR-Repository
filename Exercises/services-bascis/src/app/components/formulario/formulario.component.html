@@ -1,0 +1,25 @@
+<input
+  type="text"
+  class="form-control mb-4"
+  placeholder="Nombre"
+  [(ngModel)]="nombre"
+/>
+<input
+  type="text"
+  class="form-control mb-4"
+  placeholder="Apellido"
+  [(ngModel)]="apellido"
+/>
+<input
+  type="number"
+  class="form-control mb-4"
+  placeholder="edad"
+  [(ngModel)]="edad"
+/>
+<input
+  type="date"
+  class="form-control mb-4"
+  placeholder="Fecha Nacimiento"
+  [(ngModel)]="fecha"
+/>
+<button class="btn btn-primary" (click)="addUser()">Añadir usuario</button>
