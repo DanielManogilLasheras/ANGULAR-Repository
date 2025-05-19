@@ -20,7 +20,7 @@
 
 - Create the project:
 
-  ng new appName (--skip-tests --no-standalone)
+  ng new appName --skip-tests --no-standalone
 
 - Run the project:
 
